@@ -1,0 +1,20 @@
+#how to use custom names
+
+define Player = Character("[player_name]")
+# The game starts here.
+
+label start:
+
+    'Hello, welcome to your jurney in Mars The Red Planet'
+
+    "First things first we need you to pick a name"
+
+    # these lines define a variable of a player name which the player can pick
+    # use [player_name] to use the name
+    # example "Hello [player_name]"
+    python:
+        player_name = renpy.input("What Should We Call You?")
+        player_name = player_name.strip()
+
+        if not player_name:
+            player_name = "Commander
