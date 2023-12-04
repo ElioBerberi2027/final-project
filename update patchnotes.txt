@@ -1,0 +1,32 @@
+--- We Will Store Patch Notes Here ---
+
+use this format
+
+-Name (update 1.0)
+-All changes + explenation
+-Suggestions
+
+-------------------------------------------
+
+Update 1.0
+Done by Elio Berberi
+
+Changes:
+Added a new txt file titled necessery_Credots.txt:
+	place any credits here
+
+Created background images using Photoshops AI
+	much faster and non copyright, i will discuss this with Rosen tomorrow
+
+Developed:
+	Created a new image defining system, explained how to define and used in code (read comments)
+	Added more to story and a new event, event doesnt work as it needs 2 new labels
+	Added a EndGame label wich should be called everytime the player loses the game
+	Added more to first menu, now all three choices lead to something
+	
+Future Suggestions:
+	We keep the game simple
+	Create a new home label each time u need to reuse the home scene:
+		label home(#which variation ex. home(1),home(2)...)
+			show officebk
+			then continue story.
