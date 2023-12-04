@@ -1,3 +1,16 @@
+
+Update 1.1
+By Andrew
+
+Added:
+- Made home menu screen, simple 3 buttons on a phone picture by using screens to display instead of menu 
+      - (buttons don't do anything yet tho)
+      - also is in seperate file so its easier to edit
+
+-------------------------------------------
+
+
+
 --- We Will Store Patch Notes Here ---
 
 use this format

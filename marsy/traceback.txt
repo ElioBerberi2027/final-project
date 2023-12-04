@@ -1,22 +1,68 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 66, in script
-    gen "It will 100% destroy all life in a planet"
-TypeError: %d format: a number is required, not TagQuotingDict
+  File "game/script.rpy", line 109, in script call
+    call homeMenu
+  File "game/homeMenu.rpy", line 3, in script
+    call screen homeMenu
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/homeMenu.rpy", line 8, in execute
+    screen homeMenu:
+  File "game/homeMenu.rpy", line 8, in execute
+    screen homeMenu:
+  File "game/homeMenu.rpy", line 10, in execute
+    grid 2 1:
+Exception: Grid overfull.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 66, in script
-    gen "It will 100% destroy all life in a planet"
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 930, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\exports.py", line 1463, in say
-    what = what % tag_quoting_dict
-TypeError: %d format: a number is required, not TagQuotingDict
+  File "game/script.rpy", line 109, in script call
+    call homeMenu
+  File "game/homeMenu.rpy", line 3, in script
+    call screen homeMenu
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\ast.py", line 2259, in execute
+    self.call("execute")
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\core.py", line 4055, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\screen.py", line 476, in visit_all
+    callback(self)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\core.py", line 4055, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\screen.py", line 487, in per_interact
+    self.update()
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\screen.py", line 680, in update
+    self.screen.function(**self.scope)
+  File "game/homeMenu.rpy", line 8, in execute
+    screen homeMenu:
+  File "game/homeMenu.rpy", line 8, in execute
+    screen homeMenu:
+  File "game/homeMenu.rpy", line 10, in execute
+    grid 2 1:
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\display\layout.py", line 552, in add
+    raise Exception("Grid overfull.")
+Exception: Grid overfull.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
 marsy 1.0
-Sun Dec  3 21:21:16 2023
+Mon Dec  4 16:45:37 2023

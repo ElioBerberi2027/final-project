@@ -21,6 +21,9 @@ define nar = Character("Narrator")
 # The game starts here.
 
 label start:
+    camera:
+        perspective True
+        
     scene ssbk
     nar "Long ago in the depths of space..."
     nar "The year is 2092, and Earth is expanding its logistics across the solar system"
@@ -34,20 +37,21 @@ label start:
     nar "At the peak of the revolution a group called The Martian Action Front (MAF) seized Earth controlled police stations, millitary bases, and communications"
     nar "A man, a strong man named Taiwan Andrew took lead of the revolution and brough independence to the planet."
 
+
     scene officebk
 
     gen "Dear Leader, you have recieved a message from your mother"
-    gen "Would you like to answer"
+    gen "Would you like to answer?"
 
     menu:
-        "yes":
-            ply "Yeah Answer It"
+        "Yes":
+            ply "Yeah answer it"
             jump momConvoYes
-        "no":
+        "No":
             ply "Im busy right now"
             jump momConvoNO
 
-label home:
+label office:
     show officebk
     nar "Youre In Your Office"
     gen "The people have rested but theres still a lot to do"
@@ -63,7 +67,7 @@ label home:
     gen "We called it the planet destroyed, a cobalt bomb"
     ply "Why cobalt?"
     gen "Well if you add cobalt inside of a nuclear bomb..."
-    gen "It will 100% destroy all life in a planet"
+    gen "It will definitely destroy all life in a planet"
     ply "Hmm..."
     menu defenseDecision:
         "Planet Defense":
@@ -72,6 +76,7 @@ label home:
         "Build the bomb": 
             ply "Lets build the bomb, if we cant live free, no one shall"
             pass
+
 label momConvoYes:
     "No Service Can Not Complete"
     ply "Damn, well anyway"
@@ -98,16 +103,17 @@ label part1:
 
         "Send this to comittee for revision (Do nothing)":
             jump comittee
+
 label workGov:
     scene BG workerscry
     nar "Income decrease, popularity decreases"
     nar "Child Labor Introduced"
     gen "The people seem to be happier, but keeping factory control made them angry"
-    jump home
+    call homeMenu
 
 label workPeo:
     nar "The People are happy, you made the right choice" 
-    jump home
+    pass
 
 label comittee:
     nar "It has been almost 3 months since they asked and nothing has been done"
