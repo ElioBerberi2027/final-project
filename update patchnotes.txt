@@ -1,17 +1,29 @@
+
+Update 1.3
+By Andrew
+
+Added:
++ 1 more part to story
++ new system where everytime you click on "Next Event", theres a random chance to just end the game
+	- Check homeMenu.rpy for code
+
+
+----------------------------
+
 Update 1.2
 By Andrew
 
 Added:
-	+2 more parts of the story (waste management + Water treatment)
++ 2 more parts of the story (waste management + Water treatment)
 
 
 Changes:
-	+New system for finding labels and story progression
++ New system for finding labels and story progression
 	- check script.rpy for more info
 
 
 Possible Changes:
-	+Created some variables to use for stats, and upgrade paths (open more menu options in future?)
++ Created some variables to use for stats, and upgrade paths (open more menu options in future?)
 	- Check in homeMenu.rpy for more info
 
 

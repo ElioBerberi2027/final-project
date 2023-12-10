@@ -43,8 +43,10 @@ default partsLst = [
     "part17",
     "part18",
     "part19",
-    "part20"
+    "part20",
+    "endGame"
 ]
+
 
 
 # The game starts here.
@@ -220,7 +222,7 @@ label part3:
         "Implement strict water rationing policies":
             jump waterRation
 
-        "Do nothing":
+        "Defer the decision to a future date (Do nothing)":
             jump waterDoNothing
 
     label waterTech:
@@ -281,6 +283,43 @@ label part4:
         nar "Tensions persist, and there's a growing sense of uncertainty among the population."
         gen "The situation may escalate if not decisively handled in the future."
         call homeMenu
+
+
+
+#growing food - WIP (Change what you want) - Has meme option
+label part5:
+    gen "5. My liege! The people are hungry!"
+    gen "Agriculture is a crucial aspect of sustaining life on Mars, but our current crop yields are insufficient."
+    gen "The scientists propose two different approaches to address this issue."
+
+    menu:
+        "Invest in advanced hydroponic and aeroponic systems":
+            jump advancedSystems
+
+        "Explore genetically modified crops for increased yield":
+            jump modifiedCrops
+
+        "As the famous royalty once said, 'Let them eat cake' (Secret?)":
+            jump eatCake
+
+    label advancedSystems:
+        scene BG_hydroponicFarm
+        nar "Investing in advanced hydroponic and aeroponic systems leads to more efficient crop production."
+        nar "However, the initial investment is high, and it takes time for the benefits to be fully realized."
+        gen "The scientists are optimistic, but there is pressure to address immediate food shortages."
+        call homeMenu
+
+    label modifiedCrops:
+        nar "Exploring genetically modified crops results in quick gains in crop yield."
+        nar "However, concerns about the long-term impact on the Martian ecosystem and public health arise."
+        gen "The colonists are divided on whether the benefits outweigh the potential risks."
+        call homeMenu
+
+    label eatCake:
+        nar "Delaying the decision means sticking with the current agricultural methods."
+        nar "While familiar, they continue to face challenges, and food shortages persist."
+        gen "The citizens grow increasingly concerned about the sustainability of the colony."
+        jump endGame
 
 
 

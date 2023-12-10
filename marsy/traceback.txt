@@ -1,17 +1,19 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 147, in script call
+  File "game/script.rpy", line 149, in script call
     call homeMenu
-  File "game/script.rpy", line 197, in script call
+  File "game/script.rpy", line 190, in script call
     call homeMenu
-  File "game/script.rpy", line 237, in script call
+  File "game/script.rpy", line 233, in script call
     call homeMenu
-  File "game/script.rpy", line 276, in script call
+  File "game/script.rpy", line 271, in script call
     call homeMenu
-  File "game/homeMenu.rpy", line 4, in script
+  File "game/script.rpy", line 316, in script call
+    call homeMenu
+  File "game/homeMenu.rpy", line 16, in script
     $ renpy.jump(partsLst[partNum])
-ScriptError: could not find label 'part5'.
+ScriptError: could not find label 'part6'.
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -24,21 +26,23 @@ Full traceback:
     renpy.execution.run_context(True)
   File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\execution.py", line 955, in run_context
     context.run()
-  File "game/script.rpy", line 147, in script call
+  File "game/script.rpy", line 149, in script call
     call homeMenu
-  File "game/script.rpy", line 197, in script call
+  File "game/script.rpy", line 190, in script call
     call homeMenu
-  File "game/script.rpy", line 237, in script call
+  File "game/script.rpy", line 233, in script call
     call homeMenu
-  File "game/script.rpy", line 276, in script call
+  File "game/script.rpy", line 271, in script call
     call homeMenu
-  File "game/homeMenu.rpy", line 4, in script
+  File "game/script.rpy", line 316, in script call
+    call homeMenu
+  File "game/homeMenu.rpy", line 16, in script
     $ renpy.jump(partsLst[partNum])
   File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\script.py", line 1013, in lookup
     raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'part5'.
+ScriptError: could not find label 'part6'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
-marsy 1.0
-Fri Dec  8 20:39:24 2023
+marsy 1.01
+Sun Dec 10 15:24:12 2023
