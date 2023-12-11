@@ -92,7 +92,7 @@ label start:
     menu:
         "Yes":
             ply "Yeah answer it"
-            jump momConvoYes
+            jump part10
         "No":
             ply "Im busy right now"
             jump momConvoNO
@@ -108,35 +108,6 @@ label start:
         ply "NO I CAN NOT, MY LANES ARE FEEDING, I WANT THREE WINNING LANES NOT A CALL FROM MOM"
         gen "Okay i will tell her youre busy"
         jump part1
-
-
-#WIP - No use rn
-label office:
-    show officebk
-    nar "Youre In Your Office"
-    gen "The people have rested but theres still a lot to do"
-    ply "Yeah there is, dont worry we will figure everything out and make Mars a better home for us"
-    gen "Next we should probably try to figure out what to do when Earth Decides to be a problem"
-    ply "Yes that would be a good idea but what shall we do?"
-    gen "Well i have thought about it and the best course of action would either to be to invest in our defense or a deterrent"
-    ply "Deterent?"
-    gen "Yes"
-    ply "Like what?"
-    gen "Well during my time as a general for the United States we were researching a new kind of bomb"
-    ply "What bomb?"
-    gen "We called it the planet destroyed, a cobalt bomb"
-    ply "Why cobalt?"
-    gen "Well if you add cobalt inside of a nuclear bomb..."
-    gen "It will definitely destroy all life in a planet"
-    ply "Hmm..."
-    menu defenseDecision:
-        "Planet Defense":
-            ply "Its too dangerous, we should invest in defending our planet of threats" # we need to make 2 new labels and add these dialogues into each.
-            pass
-        "Build the bomb": 
-            ply "Lets build the bomb, if we cant live free, no one shall"
-            pass
-
 
 
 #factory control
@@ -611,5 +582,5 @@ label finishing:
     teach "Come see me after class"
     sab "(confused) That was a wild dream"
     show sebscreen
-    sav "Oh... I need to get off Reddit"
+    sab "Oh... I need to get off Reddit"
     return
