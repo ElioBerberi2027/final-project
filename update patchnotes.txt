@@ -1,4 +1,19 @@
 
+Update 1.4
+By Andrew
+
+Added:
++ part 6, 7, 8 of story (check script.rpy for more info, generated using chatGpt)
+
+Changes:
++ changed "call homeMenu" to "jump homeMenu" b/c it was breaking how endGameChance worked
+
+Future:
++ Possible achievement system, more research is needed
+
+
+---------------------------------
+
 Update 1.3
 By Andrew
 

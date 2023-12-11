@@ -4,16 +4,15 @@ label homeMenu:
     init python:
         import random
         def rollD6():
-            return random.randint(1,25)
+            return random.randint(1,2)
 
         def endOdds():
             roll = rollD6()
             if roll == 1:
                 renpy.jump('endGame')
             else:
-                pass
+                renpy.jump(partsLst[partNum])
     $ endOdds()
-    $ renpy.jump(partsLst[partNum])
     
 
 

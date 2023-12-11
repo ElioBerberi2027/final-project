@@ -126,10 +126,10 @@ label office:
 
 #factory control
 label part1:
-
-    gen "1. Now that we have freed ourselves we need to think of important issues"
-    gen "The people complain of poor working conditions and the Anarchists scream for factory autonomy"
-    gen "What shall we tackle first"
+    nar "1."
+    gen "Now that we have freed ourselves we need to think of important issues."
+    gen "The people complain of poor working conditions and the Anarchists scream for factory autonomy."
+    gen "What shall we tackle first?"
 
     menu:
         "Better working conditions, control of factories to government":
@@ -146,11 +146,11 @@ label part1:
         nar "Income decrease, popularity decreases"
         nar "Child Labor Introduced"
         gen "The people seem to be happier, but keeping factory control made them angry"
-        call homeMenu
+        jump homeMenu
 
     label workPeo:
         nar "The People are happy, you made the right choice" 
-        call homeMenu
+        jump homeMenu
 
     label comittee:
         nar "It has been almost 3 months since they asked and nothing has been done"
@@ -165,9 +165,8 @@ label part1:
 
 #waste management - WIP (Change what you want)
 label part2:
-    
-    gen "2. Our next order of business is to determine 
-        how to deal with the waste build up from manufactoring."
+    nar "2."
+    gen "Our next order of business is to determine how to deal with the waste build up from manufactoring."
     gen "If we dont do something soon, we will have a crisis on our hands."
     gen "What do you think we should do?"
 
@@ -178,25 +177,23 @@ label part2:
         "Dump it into the blue sea":
             jump dumpBlueSea
 
-        "Do nothing":
+        "Inform citizens to ignore it (Do nothing)":
             jump wasteDoNothing
 
     label dumpRedSea:
-        nar "The red sea is stained with scarlet rot"
-        nar "The sharks grow legs, and take over"
-        gen "We're being overrun by land sharks"
-        gen "Not much I can do to help."
-        ply "Oh... Theres nothing we can do."
-        call homeMenu
+        nar "The red sea is stained with scarlet rot."
+        nar "The sharks grow legs wanting to escape the waste."
+        gen "Good job, you have created a new species of shark!"
+        ply "I dont think thats a good thing."
+        jump homeMenu
 
     label dumpBlueSea:
-        nar "The blue sea is now red with waste"
-        nar "The people are angry."
-        nar "A revolt happened."
-        gen "You have somehow managed to start a coup this early on."
-        gen "Not much I can do to help."
-        ply "Oh... Theres nothing we can do."
-        call homeMenu
+        nar "The blue sea is now red with waste."
+        nar "The fish lose their i's, and become fsh."
+        gen "Good job, you have created a new species of fish!"
+        gen "Perhaps it'll make for good food."
+        ply "Not sure thats healthly."
+        jump homeMenu
 
     label wasteDoNothing:
         nar "The waste has built up and is now a problem."
@@ -211,9 +208,10 @@ label part2:
 
 #water management - WIP (Change what you want)
 label part3:
-    gen "3. As our Martian colony grows, a new challenge emerges."
+    nar "3."
+    gen "As our Martian colony grows, a new challenge emerges."
     gen "The scarcity of vital resources like water becomes a pressing issue."
-    gen "The scientists propose two potential solutions."
+    gen "The Council propose two potential solutions."
 
     menu:
         "Invest in advanced water purification technology":
@@ -229,26 +227,27 @@ label part3:
         scene BG_waterPurification
         nar "The investment in advanced water purification technology pays off."
         nar "Our colony now has access to cleaner and more abundant water."
-        gen "The scientists are delighted, and the overall morale of the colony improves."
-        call homeMenu
+        gen "The Council are delighted, and the overall morale of the colony improves."
+        jump homeMenu
 
     label waterRation:
         nar "The strict water rationing policies are implemented, causing dissatisfaction among the colonists."
         nar "Protests break out, and some citizens begin hoarding water in secret."
         gen "While water usage decreases, tension rises, and the social fabric weakens."
-        call homeMenu
+        jump homeMenu
 
     label waterDoNothing:
         nar "The decision to defer the issue results in a temporary relief, but the problem persists."
         nar "The scarcity of water continues to be a concern, and some residents grow anxious."
-        gen "The scientists urge you to address the issue before it escalates further."
+        gen "The Council urge you to address the issue before it escalates further."
         jump homeMenu
 
 
 
 #military vs. people - WIP (Change what you want)
 label part4:
-    gen "4. As tensions rise on Mars, concerns about security become a focal point of discussion."
+    nar "4."
+    gen "As tensions rise on Mars, concerns about security become a focal point of discussion."
     gen "The military leaders advocate for a significant increase in defense spending."
     gen "On the other hand, the citizens are expressing discontent due to the allocation of resources away from social programs."
 
@@ -268,29 +267,30 @@ label part4:
         nar "The military investment strengthens our defense capabilities, but at a cost."
         nar "Citizens experience a decrease in public services, and some express dissatisfaction."
         gen "The sense of security increases, but at the expense of the overall happiness of the people."
-        call homeMenu
+        jump homeMenu
 
     label socialPrioritization:
         ply "We need to prioritize the well-being of our citizens, they are the ones who make this colony possible"
         nar "Prioritizing social programs improves the well-being of the citizens."
         nar "However, the military is concerned about potential vulnerabilities and protests escalate."
         gen "The overall happiness of the people increases, but the risk of external threats grows."
-        call homeMenu
+        jump homeMenu
 
     label delayDecision:
         ply "We need to delay the decision, we need to assess the situation before making a decision"
         nar "Delaying the decision maintains a fragile balance, but neither military nor social concerns are fully addressed."
         nar "Tensions persist, and there's a growing sense of uncertainty among the population."
         gen "The situation may escalate if not decisively handled in the future."
-        call homeMenu
+        jump homeMenu
 
 
 
 #growing food - WIP (Change what you want) - Has meme option
 label part5:
-    gen "5. My liege! The people are hungry!"
+    nar "5."
+    gen "My liege! The people are hungry!"
     gen "Agriculture is a crucial aspect of sustaining life on Mars, but our current crop yields are insufficient."
-    gen "The scientists propose two different approaches to address this issue."
+    gen "The Council propose two different approaches to address this issue."
 
     menu:
         "Invest in advanced hydroponic and aeroponic systems":
@@ -306,20 +306,132 @@ label part5:
         scene BG_hydroponicFarm
         nar "Investing in advanced hydroponic and aeroponic systems leads to more efficient crop production."
         nar "However, the initial investment is high, and it takes time for the benefits to be fully realized."
-        gen "The scientists are optimistic, but there is pressure to address immediate food shortages."
-        call homeMenu
+        gen "The Council are optimistic, but there is pressure to address immediate food shortages."
+        jump homeMenu
 
     label modifiedCrops:
         nar "Exploring genetically modified crops results in quick gains in crop yield."
         nar "However, concerns about the long-term impact on the Martian ecosystem and public health arise."
         gen "The colonists are divided on whether the benefits outweigh the potential risks."
-        call homeMenu
+        jump homeMenu
 
     label eatCake:
         nar "Delaying the decision means sticking with the current agricultural methods."
         nar "While familiar, they continue to face challenges, and food shortages persist."
         gen "The citizens grow increasingly concerned about the sustainability of the colony."
         jump endGame
+
+
+
+#new emerging relgion called "Astolfoism" - WIP (Change what you want)
+label part6:
+    nar "6."
+    gen "A new and peculiar religion called 'Astolfoism' has started gaining followers among the colonists."
+    gen "The believers are devoted to a charismatic figure named Astolfo, who they claim is the key to enlightenment."
+    gen "The Council propose two different approaches to deal with this emerging religious movement."
+
+    menu:
+        "Embrace Astolfoism and integrate it into Martian society":
+            jump embraceAstolfoism
+
+        "Monitor Astolfoism from a distance and ensure it doesn't disrupt societal harmony":
+            jump monitorAstolfoism
+
+        "Host a 'Femboy Party' to celebrate diversity (Do nothing)":
+            jump cosmicCostumeParty
+
+    label embraceAstolfoism:
+        scene BG_astolfoTemple
+        nar "Embracing Astolfoism leads to the integration of its practices into Martian society."
+        nar "The believers find acceptance, and the colony experiences a cultural shift."
+        gen "While some are skeptical, others appreciate the newfound diversity of beliefs."
+        jump homeMenu
+
+    label monitorAstolfoism:
+        nar "Monitoring Astolfoism from a distance ensures that it doesn't disrupt societal harmony."
+        nar "The Council keep a watchful eye, and the religion remains a relatively small and peaceful movement."
+        gen "While some residents are wary, others appreciate The Councils' cautious approach."
+        jump homeMenu
+
+    label femboyParty:
+        nar "You decide to host a 'Femboy Party' to celebrate the diversity of beliefs on Mars."
+        nar "Citizens dress up in femboy-themed attire, creating a festive and inclusive atmosphere."
+        gen "The party becomes a lively event, fostering a sense of unity and acceptance in the colony."
+        jump homeMenu
+
+
+
+#opposing political figure - WIP (Change what you want)
+label part7:
+    nar "7."
+    gen "A charismatic and ambitious political figure named Elio has emerged, rallying support to challenge your leadership on Mars."
+    gen "His message resonates with a significant portion of the population, and The Council propose two strategies to handle this political challenge."
+
+    menu:
+        "Engage in open debates and address concerns to maintain public trust":
+            jump openDebates
+
+        "Deploy a strategic smear campaign to discredit Elio's reputation":
+            jump smearCampaign
+
+        "Host a 'Martian Comedy Roast' poking fun at the situation (Do nothing)":
+            jump comedyRoast
+
+    label openDebates:
+        scene BG_publicDebate
+        nar "You decide to engage in open debates, addressing the concerns and criticisms raised by Elio."
+        nar "Maintaining transparency helps in preserving public trust, but the political atmosphere remains tense."
+        gen "The citizens appreciate the willingness to address issues, but some remain skeptical about the political landscape."
+        jump homeMenu
+
+    label smearCampaign:
+        nar "You opt for a strategic smear campaign to discredit Elio and weaken his influence."
+        nar "While this approach may damage his reputation, it also risks alienating a portion of the population."
+        gen "The political climate becomes more hostile, with supporters on both sides engaged in heated debates."
+        jump homeMenu
+
+    label comedyRoast:
+        nar "You decide to take a lighthearted approach and host a 'Martian Comedy Roast' poking fun at the political situation."
+        nar "Citizens enjoy the humor, and it provides a temporary relief from the political tension."
+        gen "However, critics argue that the approach trivializes serious issues, and Elio gains momentum."
+        jump homeMenu
+
+
+
+#tax revisions for job/work - WIP (Change what you want)
+label part8:
+    nar "8."
+    gen "As the Martian colony grows, calls for tax revisions on jobs become louder among the citizens."
+    gen "The Council is tasked with addressing this economic concern and proposes two approaches to handle the situation."
+
+    menu:
+        "Implement a progressive tax system to address income inequality":
+            jump progressiveTax
+
+        "Introduce tax incentives for businesses to encourage job creation":
+            jump taxIncentives
+
+        "Ignore the calls for tax revisions and maintain the current system (Do nothing)":
+            jump ignoreTaxRevisions
+
+    label progressiveTax:
+        scene BG_taxOffice
+        nar "You choose to implement a progressive tax system to address income inequality."
+        nar "While this helps in redistributing wealth, some businesses express concerns about increased financial burdens."
+        gen "Citizens with lower incomes appreciate the effort to address economic disparities, but there is still opposition from certain sectors."
+        jump homeMenu
+
+    label taxIncentives:
+        nar "Opting for tax incentives, you introduce measures to encourage businesses to create more jobs."
+        nar "This strategy aims to stimulate job growth and boost the economy, but it may not immediately address income inequality."
+        gen "Some citizens commend the focus on job creation, while others argue that it doesn't do enough to address the root issue."
+        jump homeMenu
+
+    label ignoreTaxRevisions:
+        nar "Ignoring the calls for tax revisions, you choose to maintain the current tax system."
+        nar "This decision maintains stability but leads to increased dissatisfaction among citizens demanding economic reforms."
+        gen "Protests break out, and public sentiment becomes increasingly discontent with the perceived lack of action."
+        jump homeMenu
 
 
 
