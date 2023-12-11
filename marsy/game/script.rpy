@@ -8,6 +8,11 @@ image earthbk = "BG earth.png"
 image marsbk = "BG marsinvaded.png"
 image roomdatdaybk = "BG roomatday.jpg"
 image roomatnightbk = "BG roomatnight.jpg"
+image youDiedbk = "BG YouDied.jpg"
+image workerscry = "BG workerscry.jpg"
+
+image playerStanding = "player stand head up.png"
+image playerStanding2 = "player stand head down.png" 
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -67,9 +72,11 @@ label start:
     scene marsbk
     nar "At the peak of the revolution a group called The Martian Action Front (MAF) seized Earth controlled police stations, millitary bases, and communications"
     nar "A man, a strong man named Taiwan Andrew took lead of the revolution and brough independence to the planet."
+    show playerStanding with moveinleft 
+    nar "Now, you are Taiwan Andrew, and you must lead the people of Mars to a better future."
 
 
-    scene officebk
+    scene officebk with Dissolve(0.5)
 
     gen "Dear Leader, you have recieved a message from your mother"
     gen "Would you like to answer?"
@@ -142,7 +149,7 @@ label part1:
             jump comittee
 
     label workGov:
-        scene BG workerscry
+        scene workerscry
         nar "Income decrease, popularity decreases"
         nar "Child Labor Introduced"
         gen "The people seem to be happier, but keeping factory control made them angry"
@@ -436,6 +443,6 @@ label part8:
 
 
 label endGame:
-    scene BG YouDied
+    scene youDiedbk with Dissolve(0.5)
     nar "You have lost the game, your father is disapointed in you, he was really relying on you for the 401k"
     return
