@@ -10,7 +10,7 @@ image roomdatdaybk = "BG roomatday.jpg"
 image roomatnightbk = "BG roomatnight.jpg"
 image youDiedbk = "BG YouDied.jpg"
 image workerscrybk = "BG workerscry.png"
-
+image classim = "BG class.png"
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -577,6 +577,7 @@ label finishing:
     "Sab"
     "SAB"
     "WAKE UP!"
+    scene classim
     nar "You wake up confused"
     teach "Did you sleep in my class again?"
     teach "Come see me after class"
