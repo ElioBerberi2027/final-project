@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 22: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-    define gen = Character("General", image="gen" xalign 0.5 yalign 1.0, color="#c8ffc8)
+The label endit is defined twice, at File "game/script.rpy", line 567:
+    label endit:
+and File "game/script.rpy", line 596:
+    label endit:
+
+
+The label face is defined twice, at File "game/script.rpy", line 570:
+    label face:
+and File "game/script.rpy", line 599:
+    label face:
+
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Mon Dec 11 15:54:11 2023
+Mon Dec 11 18:31:46 2023

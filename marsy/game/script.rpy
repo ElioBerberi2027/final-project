@@ -22,12 +22,14 @@ define gen = Character("General", image="gen")
 image side gen = "gen stand head up.png"
 image side gen 2 = "gen stand head down.png"
 image side gen point = "gen point.png"
+image sebscreen = "sab looking at reddit.jpg"
 
 define ply = Character("Taiwan Andrew")
 define earthguy = Character("Michael")
 define alien = Character("Two Kids In A Trench Coat")
 define nar = Character("Narrator")
-
+define teach = Character("Teacher")
+define sab = Character("Sab")
 
 # Nagivate through different parts of the story
 # partNum starts @ 1 b/c start label is 0, partNum = 1 is part1, and etc.
@@ -490,13 +492,124 @@ label part9:
         ply "Sometimes, the power of anime can save even the most misguided souls."
         jump homeMenu
 
+label part10:
+    nar '10'
+    gen "The people have rested but theres still a lot to do"
+    ply "Yeah there is, dont worry we will figure everything out and make Mars a better home for us"
+    gen "Next we should probably try to figure out what to do when Earth Decides to be a problem"
+    ply "Yes that would be a good idea but what shall we do?"
+    gen "Well i have thought about it and the best course of action would either to be to invest in our defense or a deterrent"
+    ply "Deterent?"
+    gen "Yes"
+    ply "Like what?"
+    gen "Well during my time as a general for the United States we were researching a new kind of bomb"
+    ply "What bomb?"
+    gen "We called it the planet destroyed, a cobalt bomb"
+    ply "Why cobalt?"
+    gen "Well if you add cobalt inside of a nuclear bomb..."
+    gen "It will definitely destroy all life in a planet"
+    ply "Hmm..."
 
+    menu defenseFr:
+        "Planet Defense":
+            jump planetDef
+        "Build the bomb": 
+            jump bomba
+
+    label planetDef:
+        ply "Its too dangerous, we should invest in defending our planet of threats" # we need to make 2 new labels and add these dialogues into each.
+        nar "Defense money is increasing, the people yearn for the battle"
+        gen "We will start funding more money into the millitary"
+        ply "Hopefully we wont have to deal with unnecesary Floridian shenanigans"
+        gen "Never doubt the Florida man"
+        ply "Youre right"
+        gen "We have recieved a letter from the Earth"
+        ply "What does it say?"
+        gen "Your efforts are useless, Florida Man CANT be stopped"
+        ply '...'
+        jump endGame1
+
+    label bomba:
+        ply "Lets build the bomb, if we cant live free, no one shall"
+        nar "The people fear the bomb, Earth has recieved the message"
+        gen "We have recieved a letter from the Earth"
+        ply "What does it say?"
+        gen "Your efforts are useless, Florida Man CANT be stopped"
+        ply '...'
+        jump endgame2
 
 label endGame:
     scene youDiedbk with Dissolve(0.5)
     nar "You have lost the game, your father is disapointed in you, he was really relying on you for the 401k"
     return
 
+label endGame1:
+    nar "2 Years later..."
+    nar "Mars satellites capture something... Terrifying"
+    gen "TAIWAN ANDREW!!!"
+    ply "What? what happened?"
+    gen "They're coming, Earth shenanigans are happening"
+    ply "Dear God"
+    nar "With the force of 1000 suns. Earth lands its ships into Mars making their defense budget look like a picnic"
+    nar "Earth with Ease was able to destroy everything Andrew was able to create and made sure Mars was turned into a message"
+    gen "Andrew, im sorry..."
+    gen "This war is lost, i suggest we flee or.."
+    ply 'OR WHAT?'
+    gen "*points at revolver*"
+    gen "Put an end to it"
+    ply "..."
+    menu suicideornot:
+        "End It All":
+            jump endit
+        "Face them":
+            jump face
+    
+    label endit:
+        nar "Andrew points his revoler at his head and then he..."
+        jump finishing
+    label face:
+        nar "With all his might Andrew picks up his sword and armor"
+        nar "He charges the enemy with no fear and one after another he..."
+        jump finishing
 
-label trueEndGame:
-    pass
+label endgame2:
+    nar "2 Years later..."
+    nar "Mars satellites capture something... Terrifying"
+    gen "TAIWAN ANDREW!!!"
+    ply "What? what happened?"
+    gen "They're coming, Earth shenanigans are happening"
+    ply "LAUNCH THE COBALT"
+    nar "Earth was prepared for this move, they had been developing"
+    nar "Their defense was better than the attack, the bomb was useless"
+    gen "Andrew, im sorry..."
+    gen "This war is lost, i suggest we flee or.."
+    ply 'OR WHAT?'
+    gen "*points at revolver*"
+    gen "Put an end to it"
+    ply "..."
+    menu suicideornot2:
+        "End It All":
+            jump endit
+        "Face them":
+            jump face
+    
+    label endit2:
+        nar "Andrew points his revoler at his head and then he..."
+        jump finishing
+    label face2:
+        nar "With all his might Andrew picks up his sword and armor"
+        nar "He charges the enemy with no fear and one after another he..."
+        jump finishing
+
+label finishing:
+    "Sab"
+    "Sab"
+    "SAB"
+    "WAKE UP!"
+    nar "You wake up confused"
+    teach "Did you sleep in my class again?"
+    teach "Come see me after class"
+    sab "(confused) That was a wild dream"
+    show sebscreen
+    sav "Oh... I need to get off Reddit"
+    return
