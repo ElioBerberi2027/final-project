@@ -1,17 +1,19 @@
 
-Update 1.4.1
+
+Update 1.4.3
 By Andrew
 
 Added:
-+ part 6, 7, 8 of story (check script.rpy for more info, generated using chatGpt)
++ part 6, 7, 8, 9 of story (generated using chatGpt)
 + some pics
++ general (character) sprite 
+     - optimized for dialouge (check script.rpy for usage)
+
 
 Changes:
 + changed "call homeMenu" to "jump homeMenu" b/c it was breaking how endGameChance worked
 + text speed = 60 cps (characters per second)
 
-Future:
-+ Possible achievement system, more research is needed
 
 
 ---------------------------------

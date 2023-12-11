@@ -4,7 +4,7 @@ label homeMenu:
     init python:
         import random
         def rollD6():
-            return random.randint(1,2)
+            return random.randint(1,25)
 
         def endOdds():
             roll = rollD6()

@@ -9,15 +9,20 @@ image marsbk = "BG marsinvaded.png"
 image roomdatdaybk = "BG roomatday.jpg"
 image roomatnightbk = "BG roomatnight.jpg"
 image youDiedbk = "BG YouDied.jpg"
-image workerscry = "BG workerscry.jpg"
+image workerscrybk = "BG workerscry.png"
 
-image playerStanding = "player stand head up.png"
-image playerStanding2 = "player stand head down.png" 
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define gen = Character("General")
+# gen "text" gives you normal picture
+# gen 2 "text" gives you the head down picture
+# gen point "text" gives you the point picture
+define gen = Character("General", image="gen")
+image side gen = "gen stand head up.png"
+image side gen 2 = "gen stand head down.png"
+image side gen point = "gen point.png"
+
 define ply = Character("Taiwan Andrew")
 define earthguy = Character("Michael")
 define alien = Character("Two Kids In A Trench Coat")
@@ -53,6 +58,9 @@ default partsLst = [
 ]
 
 
+init python:
+    pass
+
 
 # The game starts here.
 label start:
@@ -72,13 +80,11 @@ label start:
     scene marsbk
     nar "At the peak of the revolution a group called The Martian Action Front (MAF) seized Earth controlled police stations, millitary bases, and communications"
     nar "A man, a strong man named Taiwan Andrew took lead of the revolution and brough independence to the planet."
-    show playerStanding with moveinleft 
-    nar "Now, you are Taiwan Andrew, and you must lead the people of Mars to a better future."
 
 
     scene officebk with Dissolve(0.5)
 
-    gen "Dear Leader, you have recieved a message from your mother"
+    gen "Dear Leader, you have recieved a message from your mother" 
     gen "Would you like to answer?"
 
     menu:
@@ -135,8 +141,8 @@ label office:
 label part1:
     nar "1."
     gen "Now that we have freed ourselves we need to think of important issues."
-    gen "The people complain of poor working conditions and the Anarchists scream for factory autonomy."
-    gen "What shall we tackle first?"
+    gen 2 "The people complain of poor working conditions and the Anarchists scream for factory autonomy."
+    gen point "What shall we tackle first?"
 
     menu:
         "Better working conditions, control of factories to government":
@@ -149,7 +155,7 @@ label part1:
             jump comittee
 
     label workGov:
-        scene workerscry
+        scene workerscrybk
         nar "Income decrease, popularity decreases"
         nar "Child Labor Introduced"
         gen "The people seem to be happier, but keeping factory control made them angry"
@@ -164,7 +170,7 @@ label part1:
         nar "The people are very angry"
         nar "A revolt happened"
         gen "You have somehow managed to start a coup this early on"
-        gen "Not much i can do to help"
+        gen point "Not much i can do to help"
         ply "Oh... Theres nothing we can do"
         jump endGame
 
@@ -174,8 +180,8 @@ label part1:
 label part2:
     nar "2."
     gen "Our next order of business is to determine how to deal with the waste build up from manufactoring."
-    gen "If we dont do something soon, we will have a crisis on our hands."
-    gen "What do you think we should do?"
+    gen 2 "If we dont do something soon, we will have a crisis on our hands."
+    gen point "What do you think we should do?"
 
     menu:
         "Dump it into the red sea":
@@ -198,7 +204,7 @@ label part2:
         nar "The blue sea is now red with waste."
         nar "The fish lose their i's, and become fsh."
         gen "Good job, you have created a new species of fish!"
-        gen "Perhaps it'll make for good food."
+        gen point "Perhaps it'll make for good food."
         ply "Not sure thats healthly."
         jump homeMenu
 
@@ -207,7 +213,7 @@ label part2:
         nar "The people are angry."
         nar "A revolt happened."
         gen "You have somehow managed to start a coup this early on."
-        gen "Not much i can do to help."
+        gen point "Not much i can do to help."
         ply "Oh... Theres nothing we can do."
         jump endGame
 
@@ -217,8 +223,8 @@ label part2:
 label part3:
     nar "3."
     gen "As our Martian colony grows, a new challenge emerges."
-    gen "The scarcity of vital resources like water becomes a pressing issue."
-    gen "The Council propose two potential solutions."
+    gen 2 "The scarcity of vital resources like water becomes a pressing issue."
+    gen point "The Council propose two potential solutions."
 
     menu:
         "Invest in advanced water purification technology":
@@ -255,8 +261,8 @@ label part3:
 label part4:
     nar "4."
     gen "As tensions rise on Mars, concerns about security become a focal point of discussion."
-    gen "The military leaders advocate for a significant increase in defense spending."
-    gen "On the other hand, the citizens are expressing discontent due to the allocation of resources away from social programs."
+    gen 2 "The military leaders advocate for a significant increase in defense spending."
+    gen point "On the other hand, the citizens are expressing discontent due to the allocation of resources away from social programs."
 
     menu:
         "Invest heavily in military and security measures":
@@ -296,8 +302,8 @@ label part4:
 label part5:
     nar "5."
     gen "My liege! The people are hungry!"
-    gen "Agriculture is a crucial aspect of sustaining life on Mars, but our current crop yields are insufficient."
-    gen "The Council propose two different approaches to address this issue."
+    gen 2 "Agriculture is a crucial aspect of sustaining life on Mars, but our current crop yields are insufficient."
+    gen point "The Council propose two different approaches to address this issue."
 
     menu:
         "Invest in advanced hydroponic and aeroponic systems":
@@ -345,7 +351,7 @@ label part6:
             jump monitorAstolfoism
 
         "Host a 'Femboy Party' to celebrate diversity (Do nothing)":
-            jump cosmicCostumeParty
+            jump femboyParty
 
     label embraceAstolfoism:
         scene BG_astolfoTemple
@@ -372,7 +378,7 @@ label part6:
 label part7:
     nar "7."
     gen "A charismatic and ambitious political figure named Elio has emerged, rallying support to challenge your leadership on Mars."
-    gen "His message resonates with a significant portion of the population, and The Council propose two strategies to handle this political challenge."
+    gen 2 "His message resonates with a significant portion of the population, and The Council propose two strategies to handle this political challenge."
 
     menu:
         "Engage in open debates and address concerns to maintain public trust":
@@ -409,7 +415,7 @@ label part7:
 label part8:
     nar "8."
     gen "As the Martian colony grows, calls for tax revisions on jobs become louder among the citizens."
-    gen "The Council is tasked with addressing this economic concern and proposes two approaches to handle the situation."
+    gen 2 "The Council is tasked with addressing this economic concern and proposes two approaches to handle the situation."
 
     menu:
         "Implement a progressive tax system to address income inequality":
@@ -425,7 +431,8 @@ label part8:
         scene BG_taxOffice
         nar "You choose to implement a progressive tax system to address income inequality."
         nar "While this helps in redistributing wealth, some businesses express concerns about increased financial burdens."
-        gen "Citizens with lower incomes appreciate the effort to address economic disparities, but there is still opposition from certain sectors."
+        gen "Citizens with lower incomes appreciate the effort to address economic disparities."
+        gen 2 "There is still opposition from certain sectors."
         jump homeMenu
 
     label taxIncentives:
@@ -442,7 +449,54 @@ label part8:
 
 
 
+#betrayal - WIP (Change what you want) - meme option
+label part9:
+    nar "9."
+    gen "Our council has faced a shocking betrayal."
+    gen 2 "One member has been found guilty of attempting to undermine our efforts and betray us."
+    gen point "This is a critical moment, and we must decide how to address this situation to maintain stability and trust within the council."
+
+    menu:
+        "Execute the traitor":
+            jump executeTraitor
+
+        "Spare the traitor, but exile from the council":
+            jump spareTraitor
+
+        "Attempt to brainwash with anime":
+            jump brainwashWithAnime
+
+    label executeTraitor:
+        nar "The council gathers to witness the execution of the traitor."
+        nar "The atmosphere is tense as justice is served."
+        gen "Your decision to eliminate the traitor has sent a strong message."
+        gen point "However, some members express concerns about the severity of the punishment."
+        ply "Sometimes, tough decisions are necessary for the greater good."
+        jump homeMenu
+
+    label spareTraitor:
+        nar "The traitor pleads for mercy as you announce their exile from the council."
+        nar "They are escorted out, and the council discusses the implications of your decision."
+        gen "Some council members appreciate your mercy, while others worry about potential future betrayals."
+        gen point "Maintaining unity is crucial at this point."
+        ply "We must show strength, but also compassion. It's a delicate balance."
+        jump homeMenu
+
+    label brainwashWithAnime:
+        nar "You propose a unique solution: brainwashing the traitor with anime."
+        nar "The council is puzzled, but intrigued by the unconventional idea."
+        gen "A team of anime experts is brought in to carry out the brainwashing process."
+        gen point "Surprisingly, it seems to work, and the traitor now expresses unwavering loyalty with a newfound love for anime."
+        ply "Sometimes, the power of anime can save even the most misguided souls."
+        jump homeMenu
+
+
+
 label endGame:
     scene youDiedbk with Dissolve(0.5)
     nar "You have lost the game, your father is disapointed in you, he was really relying on you for the 401k"
     return
+
+
+label trueEndGame:
+    pass
