@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # here im declaring all background images as image (name) = filename
 # you can declare these by writing scene (var name)
@@ -8,23 +8,6 @@ image earthbk = "BG earth.png"
 image marsbk = "BG marsinvaded.png"
 image roomdatdaybk = "BG roomatday.jpg"
 image roomatnightbk = "BG roomatnight.jpg"
-image youDiedbk = "BG YouDied.jpg"
-image workerscrybk = "BG workerscry.png"
-image classim = "BG class.png"
-image beachclean = "BG waterpuri.png"
-image waterscare = "BG waterscares.png"
-image bluebeach = "BG bluesea.png"
-image redbeach = "BG redbeach.png"
-image miliBase = "BG milibase.png"
-image socio = "BG wheat.jpg"
-image farm = "BG farm.png"
-image lab = "BG lab.png"
-image church = "BG church.png"
-image embrace = "BG embrace.png"
-image debateRoom = "BG debateroom.png"
-image exe = "BG exe.png"
-image jail = "BG jail.png"
-image tort = "BG torture.png"
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -46,8 +29,7 @@ define ply = Character("Taiwan Andrew")
 define earthguy = Character("Michael")
 define alien = Character("Two Kids In A Trench Coat")
 define nar = Character("Narrator")
-define teach = Character("Teacher")
-define sab = Character("Sab")
+
 
 # Nagivate through different parts of the story
 # partNum starts @ 1 b/c start label is 0, partNum = 1 is part1, and etc.
@@ -74,20 +56,20 @@ label start:
     scene ssbk
     nar "Long ago in the depths of space..."
     nar "The year is 2092, and Earth is expanding its logistics across the solar system"
-    nar "Mars was the primary victim of this expansion, with heavy farming of the planet"
+    nar "Mars was terriformed into a lush paradcie planet"
+    nar "Earth being crowed with prisoners sends ten million prisoners to mars"
     scene earthbk
-    nar "The people who work and live there are all prisoners of Earth"
     nar "After the completion of Project Mars, the prisoners were set free to work in Mars"
-    nar "However, Earth extracted every resource in the planet leaving it poulluted and on the brink of collapse"
-    nar "This forced the new inhabitants to revolt and form a new society"
+    nar "However, Earth burdened the new coloney with debt demanding the extraction of rare earth metals vital for earth's economy"
+    nar "Earth's extraction forced the inhabitants to revolt and form a new society"
     scene marsbk
     nar "At the peak of the revolution a group called The Martian Action Front (MAF) seized Earth controlled police stations, millitary bases, and communications"
-    nar "A man, a strong man named Taiwan Andrew took lead of the revolution and brough independence to the planet."
+    nar "a populist named Taiwan Andrew took lead of the revolution and brough independence to the planet."
 
 
-    scene officebk with Dissolve(0.5)
+    scene officebk
 
-    gen "Dear Leader, you have recieved a message from your mother" 
+    gen "Dear Leader, you have recieved a message from your mother"
     gen "Would you like to answer?"
 
     menu:
@@ -106,17 +88,41 @@ label start:
 
     label momConvoNO:
         gen "She insists"
-        ply "NO I CAN NOT, MY LANES ARE FEEDING, I WANT THREE WINNING LANES NOT A CALL FROM MOM"
-        gen "Okay i will tell her youre busy"
+        ply "fine no problem"
+        gen "Opps, sorry, the cell cell servis is terrible out here"
         jump part1
+
+
+#WIP - No use rn
+label office:
+    show officebk
+    nar "Back In Your Office-feeling good"
+    gen "we have secured our population but we need to develope a stratagy to before the countryies of earth recover their logictical network"
+    ply "what do you sugest?"
+    gen "Well i have thought about it and the best course of action would either to be to invest in our defense or a deterrent"
+    ply "Deterent?"
+    gen "Yes"
+    ply "Like what?"
+    gen "Well if we develop a culuster bomb we can send shrapnal spinning around the earth, securing our control over the solarstem"
+    ply "unethical but I understand"
+    ply "Hmm... we are still dependent on earth for some rare mars resources"
+    gen "Yes, the decison is yours but we may only have one shot to expolite their weakness"
+    menu defenseDecision:
+        "Planet Defense":
+            ply "Its too dangerous if Earth intellegence finds out our revolution my be over before it begins" # we need to make 2 new labels and add these dialogues into each.
+            pass
+        "Build the bomb": 
+            ply "Lets build the bomb, fortune favors the bold"
+            pass
+
 
 
 #factory control
 label part1:
-    nar "1."
-    gen "Now that we have freed ourselves we need to think of important issues."
-    gen 2 "The people complain of poor working conditions and the Anarchists scream for factory autonomy."
-    gen point "What shall we tackle first?"
+
+    gen "1. Now that we have freed ourselves we need to think of important issues"
+    gen "The people complain of poor working conditions and subersive Anarchists demand factory autonomy"
+    gen "What shall we tackle first"
 
     menu:
         "Better working conditions, control of factories to government":
@@ -129,24 +135,22 @@ label part1:
             jump comittee
 
     label workGov:
-        scene workerscrybk
+        scene BG workerscry
         nar "Income decrease, popularity decreases"
-        nar "Child Labor Introduced"
-        gen "The people seem to be happier, but keeping factory control made them angry"
-        show eliosuit
-        elio "MMMMMM Child"
-        jump homeMenu
+        nar "in an effort to increase producttivity the planning commity has introduced Child Labor"
+        gen "The people are angry with you"
+        call homeMenu
 
     label workPeo:
-        nar "The People are happy, you made the right choice" 
-        jump homeMenu
+        nar "The People are happy, you think you made the right choice" 
+        call homeMenu
 
     label comittee:
         nar "It has been almost 3 months since they asked and nothing has been done"
         nar "The people are very angry"
         nar "A revolt happened"
         gen "You have somehow managed to start a coup this early on"
-        gen point "Not much i can do to help"
+        gen "Not much i can do to help"
         ply "Oh... Theres nothing we can do"
         jump endGame
 
@@ -154,10 +158,12 @@ label part1:
 
 #waste management - WIP (Change what you want)
 label part2:
-    nar "2."
-    gen "Our next order of business is to determine how to deal with the waste build up from manufactoring."
-    gen 2 "If we dont do something soon, we will have a crisis on our hands."
-    gen point "What do you think we should do?"
+    
+    gen "2. Our next order of business is to determine 
+        how to deal with the bacteria waste build up from manufactoring."
+    gen "If we dont do something soon, we will have a ecological crisis on our hands."
+    gen "the people are used to having earthlike bioshpear"
+    gen "What do you think we should do?"
 
     menu:
         "Dump it into the red sea":
@@ -166,7 +172,7 @@ label part2:
         "Dump it into the blue sea":
             jump dumpBlueSea
 
-        "Inform citizens to ignore it (Do nothing)":
+        "Do nothing":
             jump wasteDoNothing
 
     label dumpRedSea:
@@ -195,7 +201,7 @@ label part2:
         nar "The people are angry."
         nar "A revolt happened."
         gen "You have somehow managed to start a coup this early on."
-        gen point "Not much i can do to help."
+        gen "Not much i can do to help."
         ply "Oh... Theres nothing we can do."
         jump endGame
 
@@ -203,19 +209,18 @@ label part2:
 
 #water management - WIP (Change what you want)
 label part3:
-    nar "3."
-    gen "As our Martian colony grows, a new challenge emerges."
-    gen 2 "The scarcity of vital resources like water becomes a pressing issue."
-    gen point "The Council propose two potential solutions."
+    gen "3. As our Martian colony grows, a new challenge emerges."
+    gen "water has beecome more polutend by no falt of the govenmet's insustrealiation chamian." 
+    gen "The scientists and buracrats propose two potential solutions."
 
     menu:
-        "Invest in advanced water purification technology":
+        "Invest in advanced water purification technology(approved by scientists)":
             jump waterTech
 
-        "Implement strict water rationing policies":
+        "Implement strict water rationing policies (approved by buracrats)":
             jump waterRation
 
-        "Defer the decision to a future date (Do nothing)":
+        "Do nothing ":
             jump waterDoNothing
 
     label waterTech:
@@ -240,17 +245,16 @@ label part3:
         scene office
         nar "The decision to defer the issue results in a temporary relief, but the problem persists."
         nar "The scarcity of water continues to be a concern, and some residents grow anxious."
-        gen "The Council urge you to address the issue before it escalates further."
+        gen "The scientists urge you to address the issue before it escalates further."
         jump homeMenu
 
 
 
 #military vs. people - WIP (Change what you want)
 label part4:
-    nar "4."
-    gen "As tensions rise on Mars, concerns about security become a focal point of discussion."
-    gen 2 "The military leaders advocate for a significant increase in defense spending."
-    gen point "On the other hand, the citizens are expressing discontent due to the allocation of resources away from social programs."
+    gen "4. As tensions rise on Mars, concerns about security become a focal point of discussion."
+    gen "The military leaders advocate for a significant increase in defense spending."
+    gen "On the other hand, the citizens are expressing discontent due to the allocation of resources away from social programs."
 
     menu:
         "Invest heavily in military and security measures":
@@ -287,7 +291,7 @@ label part4:
         nar "Delaying the decision maintains a fragile balance, but neither military nor social concerns are fully addressed."
         nar "Tensions persist, and there's a growing sense of uncertainty among the population."
         gen "The situation may escalate if not decisively handled in the future."
-        jump homeMenu
+        call homeMenu
 
 
 
