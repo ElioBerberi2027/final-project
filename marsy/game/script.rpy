@@ -94,6 +94,7 @@ label start:
         "Yes":
             ply "Yeah answer it"
             jump momConvoYes
+            
         "No":
             ply "Im busy right now"
             jump momConvoNO
@@ -633,4 +634,4 @@ label finishing:
     sab "(confused) That was a wild dream"
     show sebscreen
     sab "Oh... I need to get off Reddit"
-    return
+    $ renpy.full_restart()
