@@ -107,7 +107,6 @@ label memoria_game:
                         renpy.jump ("memo_game_loop")
                 renpy.jump ("memo_game_win")
                 
-                
 
         jump memo_game_loop
 
@@ -116,11 +115,11 @@ label memo_game_lose:
     $ renpy.pause (0.1, hard = True)
     $ renpy.pause (0.1, hard = True)
     "You lose! Try again."
-    jump memoria_game
+    jump homeMenu
 
 label memo_game_win:
     hide screen memo_scr
     $ renpy.pause (0.1, hard = True)
     $ renpy.pause (0.1, hard = True)
     "You win!"
-    jump finishedMiniGame
+    jump homeMenu

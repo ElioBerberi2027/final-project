@@ -1,3 +1,27 @@
+--------------------------------------------------------
+Update 1.5
+by Elio && Andrew
+
+Summary:
+	Finished the game story and imaging
+
+added:
++ different backgrounds for decisions and scenes
++ custom characters and text
++ new characters
++ funny dialogue
++ 2 mini games in phone
++ working phone buttons
++ cookie counter
+
+changes:
+fixed some images sizing
+recreated some images
++ changed window icon to mars
++ enlarged main_menu gif
+
+---------------------------------------------------------
+
 Update 1.4.4
 By Elio
 
@@ -23,9 +47,7 @@ Changes:
 + changed "call homeMenu" to "jump homeMenu" b/c it was breaking how endGameChance worked
 + text speed = 60 cps (characters per second)
 
-
-
----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 Update 1.3
 By Andrew
