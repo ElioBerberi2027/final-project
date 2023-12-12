@@ -15,6 +15,16 @@ image beachclean = "BG waterpuri.png"
 image waterscare = "BG waterscares.png"
 image bluebeach = "BG bluesea.png"
 image redbeach = "BG redbeach.png"
+image miliBase = "BG milibase.png"
+image socio = "BG wheat.jpg"
+image farm = "BG farm.png"
+image lab = "BG lab.png"
+image church = "BG church.png"
+image embrace = "BG embrace.png"
+image debateRoom = "BG debateroom.png"
+image exe = "BG exe.png"
+image jail = "BG jail.png"
+image tort = "BG torture.png"
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -28,6 +38,9 @@ image side gen 2 = "gen stand head down.png"
 image side gen point = "gen point.png"
 image sebscreen = "sab looking at reddit.jpg"
 image eliobech = "elio beach.png"
+image eliosuit = "elio suit.png"
+image tortured = "brainwash.png"
+image dead = "elio dead.png"
 define elio = Character("Elio")
 define ply = Character("Taiwan Andrew")
 define earthguy = Character("Michael")
@@ -137,6 +150,8 @@ label part1:
         nar "Income decrease, popularity decreases"
         nar "Child Labor Introduced"
         gen "The people seem to be happier, but keeping factory control made them angry"
+        show eliosuit
+        elio "MMMMMM Child"
         jump homeMenu
 
     label workPeo:
@@ -176,6 +191,7 @@ label part2:
         nar "The red sea is stained with scarlet rot."
         nar "The sharks grow legs wanting to escape the waste."
         gen "Good job, you have created a new species of shark!"
+        show eliobech
         elio "Scary!"
         ply "I dont think thats a good thing."
         jump homeMenu
@@ -187,6 +203,7 @@ label part2:
         gen "Good job, you have created a new species of fish!"
         gen point "Perhaps it'll make for good food."
         ply "Not sure thats healthly."
+        show eliobech
         elio "Yum"
         jump homeMenu
 
@@ -263,18 +280,23 @@ label part4:
             jump delayDecision
 
     label militaryInvestment:
-        scene BG_militaryBase
+        scene miliBase
         ply "We need to invest in our military, we need to be able to defend ourselves"
         nar "The military investment strengthens our defense capabilities, but at a cost."
         nar "Citizens experience a decrease in public services, and some express dissatisfaction."
         gen "The sense of security increases, but at the expense of the overall happiness of the people."
+        show eliosuit 
+        elio "MMMMM Defense"
         jump homeMenu
 
     label socialPrioritization:
+        scene socio
         ply "We need to prioritize the well-being of our citizens, they are the ones who make this colony possible"
         nar "Prioritizing social programs improves the well-being of the citizens."
         nar "However, the military is concerned about potential vulnerabilities and protests escalate."
         gen "The overall happiness of the people increases, but the risk of external threats grows."
+        show eliosuit
+        elio "Yummy Food"
         jump homeMenu
 
     label delayDecision:
@@ -304,13 +326,16 @@ label part5:
             jump eatCake
 
     label advancedSystems:
-        scene BG_hydroponicFarm
+        scene farm
         nar "Investing in advanced hydroponic and aeroponic systems leads to more efficient crop production."
         nar "However, the initial investment is high, and it takes time for the benefits to be fully realized."
         gen "The Council are optimistic, but there is pressure to address immediate food shortages."
+        show eliosuit
+        elio "Plants?"
         jump homeMenu
 
     label modifiedCrops:
+        scene lab
         nar "Exploring genetically modified crops results in quick gains in crop yield."
         nar "However, concerns about the long-term impact on the Martian ecosystem and public health arise."
         gen "The colonists are divided on whether the benefits outweigh the potential risks."
@@ -342,19 +367,21 @@ label part6:
             jump femboyParty
 
     label embraceAstolfoism:
-        scene BG_astolfoTemple
+        scene church
         nar "Embracing Astolfoism leads to the integration of its practices into Martian society."
         nar "The believers find acceptance, and the colony experiences a cultural shift."
         gen "While some are skeptical, others appreciate the newfound diversity of beliefs."
         jump homeMenu
 
     label monitorAstolfoism:
+        scene church
         nar "Monitoring Astolfoism from a distance ensures that it doesn't disrupt societal harmony."
         nar "The Council keep a watchful eye, and the religion remains a relatively small and peaceful movement."
         gen "While some residents are wary, others appreciate The Councils' cautious approach."
         jump homeMenu
 
     label femboyParty:
+        scene embrace
         nar "You decide to host a 'Femboy Party' to celebrate the diversity of beliefs on Mars."
         nar "Citizens dress up in femboy-themed attire, creating a festive and inclusive atmosphere."
         gen "The party becomes a lively event, fostering a sense of unity and acceptance in the colony."
@@ -379,13 +406,14 @@ label part7:
             jump comedyRoast
 
     label openDebates:
-        scene BG_publicDebate
+        scene debateRoom
         nar "You decide to engage in open debates, addressing the concerns and criticisms raised by Elio."
         nar "Maintaining transparency helps in preserving public trust, but the political atmosphere remains tense."
         gen "The citizens appreciate the willingness to address issues, but some remain skeptical about the political landscape."
         jump homeMenu
 
     label smearCampaign:
+        scene debateRoom
         nar "You opt for a strategic smear campaign to discredit Elio and weaken his influence."
         nar "While this approach may damage his reputation, it also risks alienating a portion of the population."
         gen "The political climate becomes more hostile, with supporters on both sides engaged in heated debates."
@@ -416,17 +444,24 @@ label part8:
             jump ignoreTaxRevisions
 
     label progressiveTax:
-        scene BG_taxOffice
+        scene officebk
         nar "You choose to implement a progressive tax system to address income inequality."
         nar "While this helps in redistributing wealth, some businesses express concerns about increased financial burdens."
         gen "Citizens with lower incomes appreciate the effort to address economic disparities."
         gen 2 "There is still opposition from certain sectors."
+        show eliosuit
+        elio "No taxation without representation!!"
+        hide eliosuit
         jump homeMenu
 
     label taxIncentives:
+        scene officebk
         nar "Opting for tax incentives, you introduce measures to encourage businesses to create more jobs."
         nar "This strategy aims to stimulate job growth and boost the economy, but it may not immediately address income inequality."
         gen "Some citizens commend the focus on job creation, while others argue that it doesn't do enough to address the root issue."
+        show eliosuit
+        elio "Tax the poor!"
+        hide eliosuit
         jump homeMenu
 
     label ignoreTaxRevisions:
@@ -455,27 +490,36 @@ label part9:
             jump brainwashWithAnime
 
     label executeTraitor:
+        scene exe
         nar "The council gathers to witness the execution of the traitor."
         nar "The atmosphere is tense as justice is served."
         gen "Your decision to eliminate the traitor has sent a strong message."
         gen point "However, some members express concerns about the severity of the punishment."
+        show eliosuit
+        elio "That gotta hurt ouch"
         ply "Sometimes, tough decisions are necessary for the greater good."
         jump homeMenu
 
     label spareTraitor:
+        scene jail
         nar "The traitor pleads for mercy as you announce their exile from the council."
         nar "They are escorted out, and the council discusses the implications of your decision."
         gen "Some council members appreciate your mercy, while others worry about potential future betrayals."
         gen point "Maintaining unity is crucial at this point."
         ply "We must show strength, but also compassion. It's a delicate balance."
+        show eliobech
+        elio "Keep him behind bars!"
         jump homeMenu
 
     label brainwashWithAnime:
+        show tortured
         nar "You propose a unique solution: brainwashing the traitor with anime."
         nar "The council is puzzled, but intrigued by the unconventional idea."
         gen "A team of anime experts is brought in to carry out the brainwashing process."
         gen point "Surprisingly, it seems to work, and the traitor now expresses unwavering loyalty with a newfound love for anime."
         ply "Sometimes, the power of anime can save even the most misguided souls."
+        show eliosuit
+        elio "Man i wish that was me :/"
         jump homeMenu
 
 label part10:
@@ -530,7 +574,7 @@ label endGame:
     return
 
 label endGame1:
-    nar "2 Years later..."
+    nar "10 Years later..."
     nar "Mars satellites capture something... Terrifying"
     gen "TAIWAN ANDREW!!!"
     ply "What? what happened?"
@@ -538,6 +582,9 @@ label endGame1:
     ply "Dear God"
     nar "With the force of 1000 suns. Earth lands its ships into Mars making their defense budget look like a picnic"
     nar "Earth with Ease was able to destroy everything Andrew was able to create and made sure Mars was turned into a message"
+    show dead
+    elio "They killed me :("
+    hide dead
     gen "Andrew, im sorry..."
     gen "This war is lost, i suggest we flee or.."
     ply 'OR WHAT?'
@@ -559,7 +606,7 @@ label endGame1:
         jump finishing
 
 label endgame2:
-    nar "2 Years later..."
+    nar "10 Years later..."
     nar "Mars satellites capture something... Terrifying"
     gen "TAIWAN ANDREW!!!"
     ply "What? what happened?"
@@ -568,11 +615,15 @@ label endgame2:
     nar "Earth was prepared for this move, they had been developing"
     nar "Their defense was better than the attack, the bomb was useless"
     gen "Andrew, im sorry..."
+    gen "We didnt have any real money left to build a military, we relied on the bomb too much"
     gen "This war is lost, i suggest we flee or.."
     ply 'OR WHAT?'
     gen "*points at revolver*"
     gen "Put an end to it"
     ply "..."
+    show dead
+    elio "They nuked us men :("
+    hide dead
     menu suicideornot2:
         "End It All":
             jump endit

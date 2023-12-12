@@ -1,3 +1,22 @@
+--------------------------------------------------------
+Update 1.5
+by Elio
+
+Summary:
+	Finished the game story and imaging
+
+added:
++ different backgrounds for decisions and scenes
++ custom characters and text
++ new characters
++ funny dialogue
+
+changes:
+fixed some images sizing
+recreated some images
+
+---------------------------------------------------------
+
 Update 1.4.4
 By Elio
 
@@ -23,9 +42,7 @@ Changes:
 + changed "call homeMenu" to "jump homeMenu" b/c it was breaking how endGameChance worked
 + text speed = 60 cps (characters per second)
 
-
-
----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
 Update 1.3
 By Andrew
