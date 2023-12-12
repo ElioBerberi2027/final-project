@@ -11,6 +11,10 @@ image roomatnightbk = "BG roomatnight.jpg"
 image youDiedbk = "BG YouDied.jpg"
 image workerscrybk = "BG workerscry.png"
 image classim = "BG class.png"
+image beachclean = "BG waterpuri.png"
+image waterscare = "BG waterscares.png"
+image bluebeach = "BG bluesea.png"
+image redbeach = "BG redbeach.png"
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -23,7 +27,8 @@ image side gen = "gen stand head up.png"
 image side gen 2 = "gen stand head down.png"
 image side gen point = "gen point.png"
 image sebscreen = "sab looking at reddit.jpg"
-
+image eliobech = "elio beach.png"
+define elio = Character("Elio")
 define ply = Character("Taiwan Andrew")
 define earthguy = Character("Michael")
 define alien = Character("Two Kids In A Trench Coat")
@@ -167,18 +172,22 @@ label part2:
             jump wasteDoNothing
 
     label dumpRedSea:
+        scene redbeach
         nar "The red sea is stained with scarlet rot."
         nar "The sharks grow legs wanting to escape the waste."
         gen "Good job, you have created a new species of shark!"
+        elio "Scary!"
         ply "I dont think thats a good thing."
         jump homeMenu
 
     label dumpBlueSea:
+        scene bluebeach
         nar "The blue sea is now red with waste."
         nar "The fish lose their i's, and become fsh."
         gen "Good job, you have created a new species of fish!"
         gen point "Perhaps it'll make for good food."
         ply "Not sure thats healthly."
+        elio "Yum"
         jump homeMenu
 
     label wasteDoNothing:
@@ -210,19 +219,25 @@ label part3:
             jump waterDoNothing
 
     label waterTech:
-        scene BG_waterPurification
+        scene beachclean
         nar "The investment in advanced water purification technology pays off."
         nar "Our colony now has access to cleaner and more abundant water."
         gen "The Council are delighted, and the overall morale of the colony improves."
+        show eliobech
+        elio "Its good!"
         jump homeMenu
 
     label waterRation:
+        scene waterscare
         nar "The strict water rationing policies are implemented, causing dissatisfaction among the colonists."
         nar "Protests break out, and some citizens begin hoarding water in secret."
         gen "While water usage decreases, tension rises, and the social fabric weakens."
+        show eliobech
+        elio "Its bad!"
         jump homeMenu
 
     label waterDoNothing:
+        scene office
         nar "The decision to defer the issue results in a temporary relief, but the problem persists."
         nar "The scarcity of water continues to be a concern, and some residents grow anxious."
         gen "The Council urge you to address the issue before it escalates further."
