@@ -1,88 +1,38 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('BG exe.png') at 0x0000000004fd5d00>:
-  File "game/script.rpy", line 494, in script
-    nar "The council gathers to witness the execution of the traitor."
-  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 69, in _window_show
-    renpy.with_statement(trans)
-OSError: Couldn't find file 'BG exe.png'.
+While running game code:
+  File "game/homeMenu.rpy", line 3, in script call
+    call screen homeMenuScreen
+  File "game/homeMenu.rpy", line 3, in script call
+    call screen homeMenuScreen
+  File "game/homeMenu.rpy", line 3, in script call
+    call screen homeMenuScreen
+  File "game/script.rpy", line 557, in script
+    $ renpy.end()
+  File "game/script.rpy", line 557, in <module>
+    $ renpy.end()
+AttributeError: module 'renpy.exports' has no attribute 'end'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 494, in script
-    nar "The council gathers to witness the execution of the traitor."
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 898, in execute
-    statement_name(stmt_name)
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 47, in statement_name
-    i(name)
-  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 69, in _window_show
-    renpy.with_statement(trans)
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\exports.py", line 1758, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\core.py", line 2978, in do_with
-    return self.interact(trans_pause=True,
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\core.py", line 3582, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\core.py", line 4175, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\core.py", line 2782, in draw_screen
-    surftree = renpy.display.render.render_screen(
-  File "render.pyx", line 492, in renpy.display.render.render_screen
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\transition.py", line 377, in render
-    bottom = render(self.old_widget, width, height, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\transform.py", line 909, in render
-    return RenderTransform(self).render(width, height, st, at)
-  File "accelerator.pyx", line 979, in renpy.display.accelerator.RenderTransform.render
-  File "accelerator.pyx", line 404, in renpy.display.accelerator.RenderTransform.render_child
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\layout.py", line 888, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\transform.py", line 909, in render
-    return RenderTransform(self).render(width, height, st, at)
-  File "accelerator.pyx", line 979, in renpy.display.accelerator.RenderTransform.render
-  File "accelerator.pyx", line 404, in renpy.display.accelerator.RenderTransform.render_child
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\image.py", line 513, in render
-    return wrap_render(self.target, width, height, st, at)
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\image.py", line 316, in wrap_render
-    rend = render(child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\im.py", line 676, in render
-    return cache.get(self, render=True)
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\im.py", line 330, in get
-    surf = image.load()
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\im.py", line 803, in load
-    raise e
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\display\im.py", line 757, in load
-    filelike = renpy.loader.load(self.filename, directory="images")
-  File "C:\Users\Elio Berberi\Downloads\renpy-8.1.3-sdk\renpy\loader.py", line 833, in load
-    raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'BG exe.png'.
+  File "game/homeMenu.rpy", line 3, in script call
+    call screen homeMenuScreen
+  File "game/homeMenu.rpy", line 3, in script call
+    call screen homeMenuScreen
+  File "game/homeMenu.rpy", line 3, in script call
+    call screen homeMenuScreen
+  File "game/script.rpy", line 557, in script
+    $ renpy.end()
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\ast.py", line 1138, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Andrew\Downloads\renpy\renpy-8.1.3-sdk\renpy\python.py", line 1122, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 557, in <module>
+    $ renpy.end()
+AttributeError: module 'renpy.exports' has no attribute 'end'
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
 marsy 1.01
-Mon Dec 11 20:34:07 2023
+Mon Dec 11 20:59:20 2023

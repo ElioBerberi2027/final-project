@@ -64,30 +64,13 @@ default partsLst = [
     "part8",
     "part9",
     "part10",
-    "part11",
-    "part12",
-    "part13",
-    "part14",
-    "part15",
-    "part16",
-    "part17",
-    "part18",
-    "part19",
-    "part20",
     "endGame"
 ]
 
 
-init python:
-    pass
-
 
 # The game starts here.
 label start:
-
-    camera:
-        perspective True
-        
     scene ssbk
     nar "Long ago in the depths of space..."
     nar "The year is 2092, and Earth is expanding its logistics across the solar system"
@@ -110,7 +93,7 @@ label start:
     menu:
         "Yes":
             ply "Yeah answer it"
-            jump part10
+            jump momConvoYes
         "No":
             ply "Im busy right now"
             jump momConvoNO
@@ -571,7 +554,7 @@ label part10:
 label endGame:
     scene youDiedbk with Dissolve(0.5)
     nar "You have lost the game, your father is disapointed in you, he was really relying on you for the 401k"
-    return
+    $ renpy.full_restart()
 
 label endGame1:
     nar "10 Years later..."

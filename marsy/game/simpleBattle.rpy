@@ -1,5 +1,5 @@
 define r = Character('Red Hood', color="#CD0000")
-define w = Character('mr.Wolf', color="#B5B5B5")
+define w = Character('Wolf', color="#B5B5B5")
 
 screen simple_stats_screen:
     frame:
@@ -27,7 +27,7 @@ screen simple_stats_screen:
         xalign 0.99 yalign 0.05
         xminimum 220 xmaximum 220
         vbox:
-            text "mr.Wolf" size 22 xalign 0.5
+            text "Wolf" size 22 xalign 0.5
             null height 5
             hbox:
                 bar:
@@ -43,7 +43,7 @@ screen simple_stats_screen:
                 
                 text "[wolf_hp] / [wolf_max_hp]" size 16
                 
-    text "Red Hood vs. mr.Wolf" xalign 0.5 yalign 0.05 size 30
+    text "Red Hood vs. Wolf" xalign 0.5 yalign 0.05 size 30
                 
 # The game starts here.
 label battle_game_1:
@@ -52,16 +52,17 @@ label battle_game_1:
     $ red_hood_max_hp = 50
     $ wolf_hp = wolf_max_hp
     $ red_hood_hp = red_hood_max_hp
-    $ cookies_left = 13
+    init python:
+        import random
+        def rollD6Cookies():
+            return random.randint(1, 6)
+    $ starting_cookies = rollD6Cookies()
+    $ cookies_left = starting_cookies * 2
     
     scene black
     
-    "Once upon a time there lived in a certain village a little country girl, the prettiest creature who was ever seen."
-    "Her mother was excessively fond of her; and her grandmother doted on her still more."
-    "This good woman had a little red riding hood made for her. It suited the girl so extremely well that everybody called her Little Red Riding Hood."
-    "One day her mother, having made some cookies, said to her, \"Go, my dear, and see how your grandmother is doing, for I hear she has been very ill. Take her some cookies, and this little pot of butter."
-    "Little Red Riding Hood set out immediately to go to her grandmother, who lived in another village."
-    "As she was going through the wood, she met with a wolf, who had a very great mind to eat her up, but {w}suddenly..."
+    "BATTLE START!"
+
     jump battle_1_loop
 
 
@@ -75,11 +76,16 @@ label battle_1_loop:
     # It will exist till both enemies have more than 0 hp.
     #
     while (wolf_hp > 0) and (red_hood_hp > 0):
-        show girl with Dissolve(0.5)
+        show girl with Dissolve(0.3)
         menu:
             "Atack!":
                 $ wolf_hp -= 2
                 r "K-y-aaa!!!11 (damage dealt - 2hp)"
+
+            "Throw a cookie (got [cookies_left] cookies left)" if cookies_left > 0:
+                $ wolf_hp -= 5
+                $ cookies_left -= 1
+                r "YEETUS DELETUS (damage dealt - 5hp)"
                 
             "Eat cookie (got [cookies_left] cookies left)" if cookies_left > 0:
                 $ red_hood_hp = min(red_hood_hp+5, red_hood_max_hp)
@@ -90,11 +96,11 @@ label battle_1_loop:
         
         $ red_hood_hp -= wolf_damage
         
-        hide girl with Dissolve(0.5)
+        hide girl with Dissolve(0.3)
         
-        show wolf with Dissolve(0.5)
+        show wolf with Dissolve(0.3)
         w "RrrrrRRrrrr! {i}*wolf bites you*{/i} (damage dealt - [wolf_damage]hp)" 
-        hide wolf with Dissolve(0.5)
+        hide wolf with Dissolve(0.3)
     #
     ####        
         
@@ -105,9 +111,8 @@ label battle_1_loop:
             "Double KO"
             
         else:
-            r "I wiiiin!!!!!111"
-            r "Finally, mom sew me a grey hood."
-            "(grandmother got [cookies_left] cookies)"
+            r "VICTORY!"
+            r "Finally, I've got to my grandmother's house!"
             
     else:
         w "Om-nom-nom-nom {i}*wolf ate you all up*{/i} (along with the basket, of course...)"
@@ -115,5 +120,6 @@ label battle_1_loop:
     jump battle_1_ending
         
 label battle_1_ending:
-    "The end."
-    jump finishedMiniGame
+    $ total_cookies = total_cookies + cookies_left
+    "You've got [cookies_left] cookies!"
+    jump homeMenu
